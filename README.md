@@ -55,7 +55,7 @@ This API allows user to login. Logins are required to view and register your cat
 ## Get all of your Cats
 This API endpoint returns a list of all your cat NFTs. With this endpoint, you can easily retrieve and manage your collection of unique feline companions on the blockchain.
 
-**GET** apiendpoint/mint/list _my_cats/
+**GET** apiendpoint/mint/list_my_cats/
 ### Request Params
 | **Name** | **Type** | **Description**                                             |
 |----------|----------|-------------------------------------------------------------|
@@ -88,6 +88,8 @@ This API endpoint returns a list of all your cat NFTs. With this endpoint, you c
 ## Register cat information
 This API endpoint empowers you to immortalize your furry friend on the blockchain! Craft a one-of-a-kind Cat NFT, showcasing the majesty and personality of your feline companion.
 
+**POST** apiendpoint/mint/register_cat/
+
 ### Request Body
 
 | **Name**    | **Type** | **Description**              |
@@ -118,7 +120,7 @@ This API endpoint empowers you to immortalize your furry friend on the blockchai
 This API endpoint allows you to modify the details associated with a specific cat NFT in your collection.
 *This api only edits the data registered through the database not in the blockchain*
 
-** PUT ** apiendpoint/mint/list_of_my_cats/
+**PUT** apiendpoint/mint/update/{uuid}
 
 ### Request Body
 | **Name**    | **Type** | **Description**              |
@@ -183,11 +185,11 @@ This API endpoint allows you to modify the details associated with a specific ca
 Link to the Repo
 
 ## Demo
-Minting Demo
-https://github.com/suriagadiego/cat-nft/assets/45307801/9ee6df40-85d0-4af3-af5c-5bde9e00428a
+###Minting Demo
+![Mintind Demo](https://github.com/suriagadiego/cat-nft/assets/45307801/9ee6df40-85d0-4af3-af5c-5bde9e00428a)
 
-Cat Edit Demo
-https://github.com/suriagadiego/cat-nft/assets/45307801/5372eb3e-534d-4ac3-acd3-34e356382114
+###Cat Edit Demo
+![edit](https://github.com/suriagadiego/cat-nft/assets/45307801/5372eb3e-534d-4ac3-acd3-34e356382114)
 
 
 ### All cats registered will be Minted as NFT on Polygon Amoy Testnet (Assuming there are enough MATIC tokens)
