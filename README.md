@@ -10,7 +10,7 @@ Cat Minter is a full-stack web application built with Django (backend) and React
 ## Sign up
 This API allows users to register for the app. Upon successful registration, a UUID is generated and assigned to the user for owner and cat and record-keeping.
 
-** POST ** apiendpoint/user/create/
+**POST** apiendpoint/user/create/
 
 ### Request Body
 | **Name**     | **Type** | **Description**                       |
@@ -36,7 +36,7 @@ This API allows users to register for the app. Upon successful registration, a U
 ## Login
 This API allows user to login. Logins are required to view and register your cats for NFT Minting.
 
-** POST ** apiendpoint/user/login/
+**POST** apiendpoint/user/login/
 
 ### Request Body
 | **Name** | **Type** | **Description** |
@@ -55,7 +55,7 @@ This API allows user to login. Logins are required to view and register your cat
 ## Get all of your Cats
 This API endpoint returns a list of all your cat NFTs. With this endpoint, you can easily retrieve and manage your collection of unique feline companions on the blockchain.
 
-** GET ** apiendpoint/mint/list_of_my_cats/
+**GET** apiendpoint/mint/list _my_cats/
 ### Request Params
 | **Name** | **Type** | **Description**                                             |
 |----------|----------|-------------------------------------------------------------|
@@ -129,6 +129,7 @@ This API endpoint allows you to modify the details associated with a specific ca
 | image_url   | string   | url of a picture of your cat |
 
 ### Response 200
+```json
 {
     "id": 8,
     "uuid": "31bab983-1dd1-46b0-9962-7f9fbe12d4b0",
@@ -140,42 +141,58 @@ This API endpoint allows you to modify the details associated with a specific ca
     "image": 9,
     "owner": 1
 }
+```
 
 ## NFT Minting Steps
 **NFT Minting is Developed using Thirdweb Typescript SDK**
 *Tried developing using Python SDK but it's been depracated*
 
+```typescript
+    const mintCat = async ({ name, image, description }) => {
+        const NETWORK = process.env.POLYGON_AMOY_TESTNET;
+        const PRIVATE_KEY = process.env.PRIVATE_KEY;
+        const API_KEY = process.env.API_KEY
+
+        const sdk = ThirdwebSDK.fromPrivateKey(
+          PRIVATE_KEY,
+          NETWORK,
+          {
+            secretKey: API_KEY,
+          },
+        );
+      
+        try {
+          const nftCollection = await sdk.getContract(process.env.CONTRACT_ADDRESS);
+          const nft = await nftCollection.erc721.mint({
+            name,
+            image,
+            description
+          });
+          console.log("NFT DATA", nft);
+          res.send('SUCCESS')
+          return nft;
+        } catch (error) {
+          console.error("Error minting NFT:", error);
+          res.send('FAIL')
+          throw error;
+        }
+    };
+
 ```
-import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-async function main() {
-  const NETWORK = "mumbai";
-  // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
-  const sdk = ThirdwebSDK.fromPrivateKey("<your-private-key-here>", NETWORK);
-
-  const deployedAddress = await sdk.deployer.deployNFTCollection({
-    name: "My NFT Collection",
-    primary_sale_recipient: "0x-your-public-wallet-address-here",
-  });
-  console.log(deployedAddress);
-
-  // here, we'll add minting of NFTs in the next step.
-}
-
-main();
-
-
-const nftCollection = sdk.getNFTCollection(deployedAddress);
-
-const nft = await nftCollection.mintTo("0x-your-public-wallet-address-here", {
-  name: "My NFT",
-});
-
-console.log(nft);
-```
+Link to the Repo
 
 ## Demo
-this is the video
+Minting Demo
+https://github.com/suriagadiego/cat-nft/assets/45307801/9ee6df40-85d0-4af3-af5c-5bde9e00428a
+
+Cat Edit Demo
+https://github.com/suriagadiego/cat-nft/assets/45307801/5372eb3e-534d-4ac3-acd3-34e356382114
+
+
+### All cats registered will be Minted as NFT on Polygon Amoy Testnet (Assuming there are enough MATIC tokens)
+<img width="1273" alt="image" src="https://github.com/suriagadiego/cat-nft/assets/45307801/18dc03d9-758a-480b-a077-4964a031a8a2">
+
 
 ## Cloning the Backend Service
 ### Installation
