@@ -22,7 +22,7 @@ def custom_permission_classes(permissions):
 
 # @permission_classes([IsAuthenticated])
 @api_view(["GET"])
-# @custom_permission_classes([IsAuthenticated, IsAdminUser])
+@custom_permission_classes([IsAuthenticated, IsAdminUser])
 def list_all_cats(request):
     cats = Cat.objects.all()
     sort_by = request.GET.get('sort_by', None)
@@ -49,6 +49,7 @@ def list_all_cats(request):
 
 
 @api_view(["GET"])
+@permission_classes([IsAuthenticated])
 def list_cats_by_owner(request):
     cats = Cat.objects.filter(owner=request.user.id)
     sort_by = request.GET.get('sort_by', None)
