@@ -185,10 +185,12 @@ This API endpoint allows you to modify the details associated with a specific ca
 Link to the Repo
 
 ## Demo
-###Minting Demo
+### Minting Demo
+**CLICK FOR AUDIO**
 ![Mintind Demo](https://github.com/suriagadiego/cat-nft/assets/45307801/9ee6df40-85d0-4af3-af5c-5bde9e00428a)
 
-###Cat Edit Demo
+### Cat Edit Demo
+**CLICK FOR AUDIO**
 ![edit](https://github.com/suriagadiego/cat-nft/assets/45307801/5372eb3e-534d-4ac3-acd3-34e356382114)
 
 
