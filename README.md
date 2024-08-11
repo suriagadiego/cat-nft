@@ -14,7 +14,7 @@ This API allows users to register for the app. Upon successful registration, a U
 ### Request Body
 | **Name**     | **Type** | **Description**                       |
 |--------------|----------|---------------------------------------|
-| first_name   | string   | Your first name                       |
+| first_name   | string   | Your first name.                       |
 | last_name    | string   | Your last name                        |
 | email        | string   | Your Email                            |
 | password     | string   | secure password                       |
