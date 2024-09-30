@@ -1,4 +1,4 @@
-# Cat Minter #4
+# Cat Minter #5
 ### Turn your furry friend into a purr-fectly unique NFT!
 
 Cat Minter is a full-stack web application built with Django (backend) and React (frontend) that empowers you to immortalize your feline companion on the blockchain as a one-of-a-kind Non-Fungible Token (NFT).
